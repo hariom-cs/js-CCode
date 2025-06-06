@@ -1,0 +1,69 @@
+<!-- // The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. 
+// An XHR client exists in one of the following states:
+// ------------------------------------------------------------------------------------------------------------------
+//  Value 	State                                   	Description
+// ------------------------------------------------------------------------------------------------------------------
+    // 0 	UNSENT 	                        Client has been created. open() not called yet.
+    // 1 	OPENED 	                        open() has been called.
+    // 2 	HEADERS_RECEIVED 	            send() has been called, and headers and status are available.
+    // 3 	LOADING 	                    Downloading; responseText holds partial data.
+    // 4 	DONE 	                        The operation is complete. -->
+
+
+
+
+                                <!-- Project of api request using XMLHttpRequest class -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container{
+      padding: 2px 16px;
+}
+</style>
+<body>
+    <h1>CARD</h1>
+    <div class="card">
+        <img src="./IMG.JPG" alt="Hariom" width="100%">
+        <div class="container">
+            <h3 id="name"></h3>
+            <h4 id="followers"></h4>
+        </div>
+    </div>
+    
+</body>
+<script>
+    const requesturl = 'https://api.github.com/users/hariom-cs'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requesturl);
+    // console.log('here');
+    xhr.onreadystatechange= function () {
+        // console.log(xhr.readyState);
+        if (xhr.readyState ==4) {//operation done??
+                        // console.log(typeof data);//string-->JAB V RESPONSE AATA HAI URL SE WO STRING ME HI AATA HAI(most of the time)
+            const data =JSON.parse(this.response);// JSON.parse -> string ko json me convert krta hai
+            
+            document.getElementById('name').textContent=`Name: ${data.name}`;
+            document.getElementById('followers').textContent=`Followers: ${data.followers}`;
+        }
+        
+    }
+    // console.log(xhr.readyState);
+    
+    
+    xhr.send();
+</script>
+
+</html>

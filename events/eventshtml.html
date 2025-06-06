@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events in javaScript</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('river').addEventListener('click',function (params) {
+    //     alert("cicked in japan")
+    // })
+
+
+
+//Q1-
+    //     document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },false)
+
+
+    // document.getElementById('owl').addEventListener('click',function (params) {
+    //     console.log("clicked on owl");  
+    // },false)
+    // ------------------------------------------------------------------------------ans-    1.clicked on owl                     eventshtml.html:72:17
+// ------------------------------------------------------------------------------------------2.clicked inside the ul              eventshtml.html:67:17
+
+
+
+
+
+//Q2
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },true)
+
+
+    // document.getElementById('owl').addEventListener('click',function (params) {
+    //     console.log("clicked on owl");  
+    // },true)
+                                                                                    // o/p----->clicked inside the ul                         eventshtml.html:83:17
+                                                                                    //          ->clicked on owl                              eventshtml.html:88:17
+
+
+
+
+
+
+// Q3
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },false)
+
+
+    // document.getElementById('owl').addEventListener('click',function (e) {
+    //     console.log("clicked on owl");
+    //     e.stopPropagation();//jaise upr me bubble up ho ja rha tha ab nhi hoga
+    // },false)
+// o/p ==> clicked inside the ul
+
+
+// Definition:>
+// The stopPropagation() method prevents propagation of the same event from being called.
+// Propagation means bubbling up to parent elements or capturing down to child elements.
+
+
+
+
+// Q4- aysa kro ki google  ki link pr click krne pr google open na ho
+
+// document.getElementById('google').addEventListener('click', function (e) {
+//     console.log("google clicked");
+//     e.preventDefault();
+//     e.stopPropagation();
+    
+// })
+
+
+
+// Q5 if i click on image it will disappear
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName== 'IMG'){
+            console.log(e.target.id);
+            console.log(e.target.parentNode);
+            
+            let removeit = e.target.parentNode
+            removeit.remove();
+        }
+        
+    },false)
+    
+</script>
+</html>

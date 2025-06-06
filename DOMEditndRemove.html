@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove element-DOM</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>javaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`                   //value added to list item
+        document.querySelector('.language').appendChild(li)//attach into class 'language' ? where?=> 'li' child which is designed above
+    }
+    addLanguage('python')   //adding a li item
+    addLanguage('typeScript')
+
+Msi-14@Nitc 
+
+    //optimal function
+    function OptAddLang(langName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));// yha 'li' liya or child appenD kr diya 'ESME PURA TREE TRAVERSE NHI KRNA PDA'
+        document.querySelector('.language').appendChild(li);// KAH APPEND KRNA HAI YE BATAYA
+    }
+    OptAddLang('golang')
+
+
+
+
+    //EDIT
+    const secondLang= document.querySelector('li:nth-child(2)')
+    // secondLang.innerHTML("mojo")//--> it will directly replace your second list item with' mojo'
+    const newLI=document.createElement('li');
+    newLI.textContent='mojo'//ye avi hawa me hau
+    secondLang.replaceWith(newLI)//same kaam krta hai jaise 'innerHTML' krega
+
+    //using'.outerHTML' se v change kr skte hai 
+
+
+    //REMOVE
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.remove();//remove last child
+</script>
+</html>

@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changing infinite color</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+
+    <h1>Start should print Name of every second and stop will stop this</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+    
+
+    <script>
+    // console.log("hariom");
+    let intervalId;
+    
+    const startPrintingName = function () {
+        intervalId=setInterval(printName,1000)//1sec
+        function printName() {
+            console.log(`hariom Kumar ${Date.now()}`);
+        }
+    }
+
+    const stopPrintingName=function () {
+        clearInterval(intervalId);
+        intervalId=null;
+    }
+    document.getElementById('start').addEventListener('click',startPrintingName)
+    document.getElementById('stop').addEventListener('click',stopPrintingName)
+</script>
+</body>
+
+</html>
