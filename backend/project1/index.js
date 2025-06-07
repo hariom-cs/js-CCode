@@ -3,7 +3,7 @@ const app = express();
 const path =require('path');
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));   //en do line k wjh se hm form ko use kr payege
+app.use(express.urlencoded({extended:true}));  //en do line k wjh se hm form ko use kr payege
 
 app.use(express.static(path.join(__dirname, 'public')));         //  joining (current dir path + public) path to access all static  file(image, javascript, stylesheet all are static file)
                                                                  // //console.log(__dirname);                     //->    /home/hariom/Project/Learning/javascript/backend/project1(dir. in w/c we are working)

@@ -1,0 +1,4 @@
+1. create front end for the Note contain title, description, create button and list of taks which is created.
+2. hme file se read krna hai koi file me data hai ya nhi created
+3. if files  hoga tavi wha card me creatted file dikhegga  eske liye ek if else condition
+4. create kro file by title name 
