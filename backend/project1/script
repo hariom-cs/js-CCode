@@ -1,0 +1,22 @@
+STEP-1
+INIT a project with >>npm init -y
+express install
+install ejs from npm
+setup ejs as a view engine
+
+    Setting up ejs for ejs pages
+        -install ejs form npm
+        -setup middleware as a view engine
+
+STEP-2
+    Setting up public static file
+
+STEP-3
+    Dynamic Routing
+
+            - go to browser first((like localhost/3000/----))
+            - write url which you want(eg. like localhost/3000/profile/hariom)
+            - now create this url route 
+            - take response 
+            -----------------------------
+            -now we have to make the url as 'DYNAMIC' routinng so identify the 'dynamic' part and add ":" therefront
