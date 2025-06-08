@@ -2,3 +2,6 @@
 2. hme file se read krna hai koi file me data hai ya nhi created
 3. if files  hoga tavi wha card me creatted file dikhegga  eske liye ek if else condition
 4. create kro file by title name 
+5. add discription
+6. save it to files
+7. add edit title button- jisme previous or new title show krna hai

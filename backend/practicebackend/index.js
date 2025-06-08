@@ -19,7 +19,12 @@ app.get('/', (req, res) => {
     res.render('index', {files:files}); // Looks for views/index.ejs||local files passing as a var
     })
 });
-
+app.get('/file/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`,"utf-8", function (err, filedata) {
+        res.render('show',{filename:req.params.filename , filedata: filedata});
+        
+    })
+});
 app.post('/create', (req, res) => {
     // console.log(req.body); //data coming on console after clicking create button
 
@@ -29,6 +34,18 @@ app.post('/create', (req, res) => {
     })
     
 });
+
+
+app.get('/edit/:filename',(req, res)=>{
+        res.render('edit',{filename:req.params.filename});
+});
+app.post('/edit/:filename', function (req, res) {
+    fs.rename(`./files/${req.body.previousName}`,`./files/${req.body.newName}`,function (err) {
+        res.redirect('/');
+    });
+    
+})
+
 
 // Start the server
 app.listen(3000, () => {
